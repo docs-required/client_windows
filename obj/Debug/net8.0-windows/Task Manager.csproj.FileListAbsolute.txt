@@ -1,0 +1,26 @@
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\Task Manager.exe
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\Task Manager.deps.json
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\Task Manager.runtimeconfig.json
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\Task Manager.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\Task Manager.pdb
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager_MarkupCompile.cache
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager_MarkupCompile.lref
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.g.resources
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.AssemblyInfoInputs.cache
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.AssemblyInfo.cs
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.csproj.CoreCompileInputs.cache
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\refint\Task Manager.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.pdb
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.genruntimeconfig.cache
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\ref\Task Manager.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\MaterialDesignColors.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.csproj.AssemblyReference.cache
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\App.baml
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Debug\net8.0-windows\Task Manager.csproj.CopyComplete
