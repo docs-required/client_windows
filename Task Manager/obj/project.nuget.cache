@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ndw4ZJCxAy9W0QyM/SFR9Flu+lt+PMg2NARZZHDG6c390xpM9gEnsXSPQerKRB/z1IdYA+S4QRNt5cF2DKpKEA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\netuser\\Desktop\\taskmanager\\Task Manager\\Task Manager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\netuser\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\netuser\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\netuser\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}
