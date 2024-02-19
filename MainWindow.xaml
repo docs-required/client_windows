@@ -29,68 +29,28 @@
             <Button VerticalAlignment="Top" Margin="0 49 0 0" x:Name="newProjectButton" Height="34" Width="210" Content="Создать новый проект"  Background="#FF0096D5" BorderBrush="#FF0096D5" Click="newProjectButton_Click"/>
             <ScrollViewer VerticalScrollBarVisibility="Hidden" Margin="0 88 0 0" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top">
                 <StackPanel Name="projectsPanel" HorizontalAlignment="Center">
-                
+                    
                 </StackPanel>
             </ScrollViewer>
         </Grid>
 
-        <Grid IsEnabled="False" Name="centerColumn" Grid.Column="1">
+        <Grid IsEnabled="True" Name="centerColumn" Grid.Column="1">
             <Border Height="3" VerticalAlignment="Top" Background="#FF0096D5" CornerRadius="0 0 20 20"/>
             <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                 <Border Padding="20 10">
                     <StackPanel>
                         <TextBlock Text="Новый проект" FontSize="20" Margin="0 0 0 15"/>
-                        <Button HorizontalAlignment="Left" Height="34" Width="180" Content="Редактировать проект"  Background="#FF0096D5" BorderBrush="#FF0096D5"/>
+                        <Button HorizontalAlignment="Left" Height="34" Width="180" Content="Редактировать проект"  Background="#FF0096D5" BorderBrush="#FF0096D5" Click="Button_Click"/>
                         <StackPanel Margin="0 20">
                             <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#FF0096D5" Padding="10" Margin="0 0 0 15">
                                 <StackPanel>
                                     <TextBlock Text="Название таска 1" FontSize="14" Margin="0 0 0 5"/>
-                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray"/>
-                                    
+                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray" Margin="0 0 0 5"/>
+                                    <TextBlock Text="Роли" FontSize="12" Foreground="DarkSlateGray"/>
                                 </StackPanel>
                             </Border>
-                            <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#FF0096D5" Padding="10" Margin="0 0 0 15">
-                                <StackPanel>
-                                    <TextBlock Text="Название таска 1" FontSize="14" Margin="0 0 0 5"/>
-                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray"/>
-
-                                </StackPanel>
-                            </Border>
-                            <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#FF0096D5" Padding="10" Margin="0 0 0 15">
-                                <StackPanel>
-                                    <TextBlock Text="Название таска 1" FontSize="14" Margin="0 0 0 5"/>
-                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray"/>
-
-                                </StackPanel>
-                            </Border>
-                            <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#FF0096D5" Padding="10" Margin="0 0 0 15">
-                                <StackPanel>
-                                    <TextBlock Text="Название таска 1" FontSize="14" Margin="0 0 0 5"/>
-                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray"/>
-
-                                </StackPanel>
-                            </Border>
-                            <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#FF0096D5" Padding="10" Margin="0 0 0 15">
-                                <StackPanel>
-                                    <TextBlock Text="Название таска 1" FontSize="14" Margin="0 0 0 5"/>
-                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray"/>
-
-                                </StackPanel>
-                            </Border>
-                            <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#FF0096D5" Padding="10" Margin="0 0 0 15">
-                                <StackPanel>
-                                    <TextBlock Text="Название таска 1" FontSize="14" Margin="0 0 0 5"/>
-                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray"/>
-
-                                </StackPanel>
-                            </Border>
-                            <Border Background="White" CornerRadius="10" BorderThickness="2" BorderBrush="#FF0096D5" Padding="10" Margin="0 0 0 15">
-                                <StackPanel>
-                                    <TextBlock Text="Название таска 1" FontSize="14" Margin="0 0 0 5"/>
-                                    <TextBlock Text="Описание жесть lorem ipsum" FontSize="12" Foreground="DarkSlateGray"/>
-
-                                </StackPanel>
-                            </Border>
+                            
+                            
                         </StackPanel>
                     </StackPanel>
                 </Border>

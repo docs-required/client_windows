@@ -26,22 +26,25 @@ namespace Task_Manager
         }
         int a = 1;
         string s = "Новый проект";
+        Brush? fff = new BrushConverter().ConvertFromString("#FFFFFFFF") as Brush;
+        Brush? ff0 = new BrushConverter().ConvertFromString("#FF0096D5") as Brush;
+        Brush? black = new BrushConverter().ConvertFromString("#FF000000") as Brush;
 
         private void newProjectButton_Click(object sender, RoutedEventArgs e)
         {
             Border btn = new Border();
-            Brush clr = (Brush) (new BrushConverter().ConvertFromString("#FF0096D5"));
+            Brush? clr = ff0;
             btn.MouseLeftButtonUp += projectChoose;
             btn.Width = 210;
             btn.Height = double.NaN;
-            
-            
+
             TextBlock txtb = new TextBlock();
             s += " a as qwe " + s;
+            
             txtb.Text = s;
             txtb.TextWrapping = TextWrapping.Wrap;
             txtb.Margin = (Thickness)new ThicknessConverter().ConvertFromString("7 4");
-            txtb.Foreground = (Brush)(new BrushConverter().ConvertFromString("#FFFFFFFF"));
+            txtb.Foreground = fff;
             btn.Child = txtb;
             btn.CornerRadius = new CornerRadius(3);
             btn.BorderThickness = new Thickness(2);
@@ -51,21 +54,23 @@ namespace Task_Manager
             //Height = "34" Width = "170" Content = "Создать новый проект" FontSize = "12" Background = "#FF0096D5" BorderBrush = "#FF0096D5" Click = "newProjectButton_Click"
             btn.BorderBrush = clr;
             btn.Background =  clr;
+            
             projectsPanel.Children.Add(btn);
         }
 
         private void projectChoose (object Sender, RoutedEventArgs e)
         {
+            
             foreach (UIElement x in projectsPanel.Children)
             {
                 if (x is Border)
                 {
-                    ((Border) x).Background = (Brush)(new BrushConverter().ConvertFromString("#FF0096D5"));
-                    ((TextBlock) ((Border)x).Child).Foreground = (Brush)(new BrushConverter().ConvertFromString("#FFFFFFFF"));
+                    ((Border) x).Background = ff0;
+                    ((TextBlock) ((Border)x).Child).Foreground = fff;
                 }
             }
-            ((Border) Sender).Background = new BrushConverter().ConvertFromString("#FFFFFFFF") as Brush;
-            ((TextBlock)((Border) Sender).Child).Foreground = (Brush)(new BrushConverter().ConvertFromString("#FF000000"));
+            ((Border) Sender).Background = fff;
+            ((TextBlock)((Border) Sender).Child).Foreground = black;
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
@@ -80,6 +85,11 @@ namespace Task_Manager
             {
                 wrongText.Visibility = Visibility.Visible;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ;
         }
     }
 }

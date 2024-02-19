@@ -24,3 +24,4 @@ C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Release\net8.0-windows\Mic
 C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.csproj.AssemblyReference.cache
 C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\App.baml
 C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.csproj.CopyComplete
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.sourcelink.json
