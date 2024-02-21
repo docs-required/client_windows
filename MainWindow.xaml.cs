@@ -1,4 +1,5 @@
 ﻿using System.Runtime.ConstrainedExecution;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
@@ -20,16 +21,59 @@ namespace Task_Manager
     /// </summary>
     public partial class MainWindow : Window
     {
+        struct Task
+        {
+            //string title, short status, string description, List<string> roles = null
+            public string title;
+            public short status;
+            public string descripton;
+            public List<string> roles;
+            
+        }
+
+        struct Project
+        {
+            public string projectTitle;
+            public List<Task> projectTasks;
+        }
+
+
+
+        List<Project> listOfProjects = new List<Project>();
+
         public MainWindow()
         {
             InitializeComponent();
             securityPanel.Visibility = Visibility.Visible;
+            
         }
+
+
         int a = 1;
         string s = "Новый проект";
-        Brush? fff = new BrushConverter().ConvertFromString("#FFFFFFFF") as Brush;
-        Brush? ff0 = new BrushConverter().ConvertFromString("#FF0096D5") as Brush;
-        Brush? black = new BrushConverter().ConvertFromString("#FF000000") as Brush;
+        readonly Brush? fff = new BrushConverter().ConvertFromString("#FFFFFFFF") as Brush;
+        readonly Brush? ff0 = new BrushConverter().ConvertFromString("#FF0096D5") as Brush;
+        readonly Brush? black = new BrushConverter().ConvertFromString("#FF000000") as Brush;
+
+        private void projectsReveal (List<Project> lst)
+        {
+            projectsPanel.Children.Clear();
+            
+            foreach(Project prj in lst)
+            {
+                projectCreator(prj.projectTitle);
+            }
+        }
+
+        private void tasksReveal (Project proj)
+        {
+            tasksPanel.Children.Clear();
+            projectTitle.Text = proj.projectTitle;
+            foreach(Task task in proj.projectTasks)
+            {
+                taskCreator(task.title, task.status, task.descripton, task.roles);
+            }
+        }
 
         private void newProjectButton_Click(object sender, RoutedEventArgs e)
         {

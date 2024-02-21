@@ -18,10 +18,10 @@ C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\ref
 C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.pdb
 C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.genruntimeconfig.cache
 C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\ref\Task Manager.dll
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.csproj.AssemblyReference.cache
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\App.baml
+C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.sourcelink.json
 C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Release\net8.0-windows\MaterialDesignColors.dll
 C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Release\net8.0-windows\MaterialDesignThemes.Wpf.dll
 C:\Users\netuser\Desktop\taskmanager\Task Manager\bin\Release\net8.0-windows\Microsoft.Xaml.Behaviors.dll
-C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.csproj.AssemblyReference.cache
-C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\App.baml
 C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.csproj.CopyComplete
-C:\Users\netuser\Desktop\taskmanager\Task Manager\obj\Release\net8.0-windows\Task Manager.sourcelink.json
