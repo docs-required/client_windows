@@ -1,4 +1,5 @@
-﻿using System.Runtime.ConstrainedExecution;
+﻿using System.Net.Sockets;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -40,12 +41,75 @@ namespace Task_Manager
 
 
         List<Project> listOfProjects = new List<Project>();
+        Project testProj = new();
 
         public MainWindow()
         {
             InitializeComponent();
             securityPanel.Visibility = Visibility.Visible;
-            
+
+
+            projectChangePanel.Height = 0;
+            projectChangePanel.Margin = (Thickness)new ThicknessConverter().ConvertFromString("0");
+
+
+            testProj.projectTitle = "Дизайн сайта для продажи мерча и тд (ТЗ нет, но надо чота придумать)";
+            testProj.projectTasks = new List<Task>();
+            Task tsk = new();
+            tsk.title = "Шапка";
+            tsk.status = 1;
+            tsk.descripton = "Шапка крч надо сделать дизайн шапки, много всего (докбары там... хлебные крошки...)";
+            tsk.roles = new List<string> {"Дизайнер"};
+            testProj.projectTasks.Add(tsk);
+            tsk.title = "Шапка (но уже делаем)";
+            tsk.status = 0;
+            tsk.descripton = "Шапка крч надо сделать саму шапку, всё, что дал дизайнер";
+            tsk.roles = new List<string> { "Программист" };
+            testProj.projectTasks.Add(tsk);
+            tsk.title = "Подвал (дизайн)";
+            tsk.status = 4;
+            tsk.descripton = "Подвал, задизайнить";
+            tsk.roles = new List<string> { "Дизайнер" };
+            testProj.projectTasks.Add(tsk);
+            tsk.title = "Подвал (но уже делаем)";
+            tsk.status = 0;
+            tsk.descripton = "Подвал крч надо сделать саму подвал, всё, что дал дизайнер";
+            tsk.roles = new List<string> { "Программист" };
+            testProj.projectTasks.Add(tsk);
+            listOfProjects.Add(testProj);
+            projectsReveal(listOfProjects);
+            tasksReveal(listOfProjects[0]);
+        }
+
+        
+       
+
+        private static string connect(string req = "client_get_teams:{1234}")
+        {
+            string answer = string.Empty;
+            try
+            {
+                TcpClient client = new TcpClient("141.105.64.173", 8787);
+
+                NetworkStream stream = client.GetStream();
+
+                byte[] bytesWrite = Encoding.UTF8.GetBytes(req);
+                stream.Write(bytesWrite, 0, bytesWrite.Length);
+
+
+                byte[] bytesRead = new byte[256];
+                int length = stream.Read(bytesRead, 0, bytesRead.Length);
+                answer = Encoding.UTF8.GetString(bytesRead, 0, length);
+
+                stream.Write(Encoding.UTF8.GetBytes("disconnect"), 0, Encoding.UTF8.GetBytes("disconnect").Length);
+
+                client.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return answer.Trim();
         }
 
 
@@ -95,26 +159,57 @@ namespace Task_Manager
             ((TextBlock)((Border) Sender).Child).Foreground = black;
         }
 
+        private string hash_id = string.Empty;
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            if (loginText.Text == "admin" && passwordText.Password == "admin")
+            if (secureLabel.Text == "Авторизация")
+                if (connect("client_login:{" + hash(loginText.Text) +";" + hash(passwordText.Password + " ") + "}") == "true")
+                {
+                    securityPanel.Visibility = Visibility.Hidden;
+                    hash_id = hash(loginText.Text);
+                    leftColumn.IsEnabled = true;
+                    centerColumn.IsEnabled = true;
+                    rightColumn.IsEnabled = true;
+                    profileName.Text = connect("client_get_name:{" + hash_id + "}");
+                } else
+                {
+                    wrongText.Text = "Неправильный логин и/или пароль";
+                    wrongText.Visibility = Visibility.Visible;
+                }
+            else
             {
-                securityPanel.Visibility = Visibility.Hidden;
-                leftColumn.IsEnabled = true;
-                centerColumn.IsEnabled = true;
-                rightColumn.IsEnabled = true;
-            } else
-            {
-                wrongText.Visibility = Visibility.Visible;
+                if (connect("client_register:{" + hash(loginText.Text) + $";{((nameText.Text.Trim() != "") ? nameText.Text.Trim() : "Новый пользователь")};{((descriptionText.Text.Trim() != "") ? descriptionText.Text.Trim() : "Новый пользователь")};" + hash(passwordText.Password + " ") + "}") == "true")
+                {
+                    securityPanel.Visibility = Visibility.Hidden;
+                    hash_id = hash(loginText.Text);
+                    leftColumn.IsEnabled = true;
+                    centerColumn.IsEnabled = true;
+                    rightColumn.IsEnabled = true;
+                    profileName.Text = connect("client_get_name:{" + hash_id + "}");
+                }
+                else
+                {
+                    wrongText.Text = "Данный пользователь уже зарегистрирован";
+                    wrongText.Visibility = Visibility.Visible;
+                }
             }
         }
         short i = 0;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            taskCreator("Hello", i, "Hello everyone you need to hack some servers :) Let's talk about it later!", new List<string>() {"None"});
-            i++;
-            i %= 5;
+            connect();
+            if (projectChangePanel.Height == 0)
+            {
+                projectChangePanel.Margin = (Thickness)new ThicknessConverter().ConvertFromString("0 20 0 0");
+                projectChangePanel.Height = 200;
+            }
+            else
+            {
+                projectChangePanel.Height = 0;
+                projectChangePanel.Margin = (Thickness)new ThicknessConverter().ConvertFromString("0");
+            }
+
         }
 
         private void projectCreator(string text)
@@ -142,6 +237,19 @@ namespace Task_Manager
             btn.Background = clr;
 
             projectsPanel.Children.Add(btn);
+        }
+
+        public static String hash(String value)
+        {
+            StringBuilder Sb = new StringBuilder();
+            using (SHA256 hash = SHA256.Create())
+            {
+                Encoding enc = Encoding.UTF8;
+                Byte[] result = hash.ComputeHash(enc.GetBytes(value));
+                foreach (Byte b in result)
+                    Sb.Append(b.ToString("x2"));
+            }
+            return Sb.ToString();
         }
 
         private void taskCreator(string title, short status, string description, List<string> roles = null)
@@ -218,5 +326,33 @@ namespace Task_Manager
             tasksPanel.Children.Add(brd);
         }
 
+        private void regButton_Click(object sender, RoutedEventArgs e)
+        {
+            secureLabel.Text = (string)regButton.Content;
+            if ((string) regButton.Content == "Регистрация")
+            {
+                regButton.Content = "Авторизация";
+                nameText.IsEnabled = true;
+                descriptionText.IsEnabled = true;
+                nameText.Height = 40;
+                descriptionText.Height = 40;
+                nameText.Margin = (Thickness)new ThicknessConverter().ConvertFromString("0 0 0 20");
+                descriptionText.Margin = (Thickness)new ThicknessConverter().ConvertFromString("0 0 0 20");
+            } else
+            {
+                regButton.Content = "Регистрация";
+                nameText.IsEnabled = false;
+                descriptionText.IsEnabled = false;
+                nameText.Height = 0;
+                descriptionText.Height = 0;
+                nameText.Margin = (Thickness)new ThicknessConverter().ConvertFromString("0");
+                descriptionText.Margin = (Thickness)new ThicknessConverter().ConvertFromString("0");
+            } 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(hash(taskChooser.Text));
+        }
     }
 }
